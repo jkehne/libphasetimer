@@ -1,0 +1,8 @@
+GPATH
+GTAGS
+GRTAGS
+
+*.o
+*.so
+*.a
+*~
