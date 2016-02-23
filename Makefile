@@ -24,7 +24,7 @@ RM := rm -f
 INSTALL := install -D
 LN := ln -s
 
-PREFIX ?= /usr/local
+PREFIX ?= $(DESTDIR)/usr
 
 all: shared static
 
