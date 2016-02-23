@@ -34,7 +34,6 @@ private:
   std::vector<TimerPhase> phases;
   uint64_t lastTimestamp;
   uint32_t lastPhase;
-  static uint32_t maxPhaseNameLength;
   uint64_t getTimeDiffAndUpdateTimestamp();
 
 public:
@@ -54,10 +53,6 @@ public:
   void switchToPhase(uint32_t handle);
   void printPhases() const;
   void stopTimer();
-
-  static uint32_t getMaxPhaseNameLength() {
-    return maxPhaseNameLength;
-  }
 };
 
 extern "C" {

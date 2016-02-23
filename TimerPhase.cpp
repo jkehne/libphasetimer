@@ -21,10 +21,11 @@ License along with LibPhaseTimer; if not, see
 #include <iomanip>
 
 #include "TimerPhase.hpp"
-#include "PhaseTimer.hpp"
+
+uint32_t TimerPhase::maxPhaseNameLength = 0;
 
 std::ostream& operator<<(std::ostream& os, const TimerPhase &phase) {
-  os << std::setw(PhaseTimer::getMaxPhaseNameLength()) << phase.name << ": " << std::setw(20) << phase.time << " ns\n";
+  os << std::setw(TimerPhase::maxPhaseNameLength) << phase.name << ": " << std::setw(20) << phase.time << " ns\n";
   return os; 
 }
 
@@ -33,3 +34,6 @@ TimerPhase& TimerPhase::operator+=(uint64_t amount) {
   return *this;
 }
 
+TimerPhase::TimerPhase(std::string &name) : name(name), time(0) { 
+  maxPhaseNameLength = std::max(maxPhaseNameLength, static_cast<uint32_t>(name.length()));
+}

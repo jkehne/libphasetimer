@@ -26,8 +26,6 @@ License along with LibPhaseTimer; if not, see
 
 #define NSEC_PER_SEC 1000000000ULL
 
-uint32_t PhaseTimer::maxPhaseNameLength = 0;
-
 uint64_t PhaseTimer::getTimeDiffAndUpdateTimestamp() {
   struct timespec now;
   clock_gettime(CLOCK_MONOTONIC, &now);
@@ -59,7 +57,6 @@ void PhaseTimer::printPhases() const {
 uint32_t PhaseTimer::addPhase(std::string name) {
   TimerPhase phase(name);
   phases.push_back(phase);
-  maxPhaseNameLength = std::max(maxPhaseNameLength, static_cast<uint32_t>(name.length()));
   return phases.size() - 1;
 }
 

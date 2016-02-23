@@ -27,10 +27,10 @@ class TimerPhase {
 private:
   std::string name;
   uint64_t time;
+  static uint32_t maxPhaseNameLength;
 
 public:
-  TimerPhase(std::string &name)
-    : name(name), time(0) { }
+  TimerPhase(std::string &name);
 
   TimerPhase& operator+=(uint64_t amount);
   friend std::ostream& operator<<(std::ostream& os, const TimerPhase &phase);
