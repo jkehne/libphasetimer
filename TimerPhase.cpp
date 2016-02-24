@@ -24,6 +24,10 @@ License along with LibPhaseTimer; if not, see
 
 uint32_t TimerPhase::maxPhaseNameLength = 0;
 
+void TimerPhase::reset() {
+  time = 0;
+}
+
 std::ostream& operator<<(std::ostream& os, const TimerPhase &phase) {
   os << std::setw(TimerPhase::maxPhaseNameLength) << phase.name << ": " << std::setw(20) << phase.time << " ns\n";
   return os; 

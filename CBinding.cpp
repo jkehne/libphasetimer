@@ -46,4 +46,8 @@ extern "C" {
     reinterpret_cast<PhaseTimer *>(timer)->stopTimer();
   }
 
+  void ptimer_resetTimer(ptimer *timer) {
+    reinterpret_cast<PhaseTimer *>(timer)->resetTimer();
+  }
+
 } // extern "C"

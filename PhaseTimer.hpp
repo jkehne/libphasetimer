@@ -53,6 +53,7 @@ public:
   void switchToPhase(uint32_t handle);
   void printPhases() const;
   void stopTimer();
+  void resetTimer();
 };
 
 extern "C" {
@@ -69,6 +70,7 @@ extern "C" {
   void ptimer_switchToPhase(ptimer *timer, uint32_t handle);
   void ptimer_printPhases(ptimer *timer);
   void ptimer_stopTimer(ptimer *timer);
+  void ptimer_resetTimer(ptimer *timer);
   
 #ifdef __cplusplus
 } // extern "C"

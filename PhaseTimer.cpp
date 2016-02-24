@@ -64,6 +64,13 @@ void PhaseTimer::stopTimer() {
   switchToPhase(-1);
 }
 
+void PhaseTimer::resetTimer() {
+  stopTimer();
+
+  for (TimerPhase phase : phases)
+    phase.reset();
+}
+
 PhaseTimer::PhaseTimer() : lastTimestamp(0), lastPhase(-1) { }
 PhaseTimer::PhaseTimer(PhaseTimer &other) = default;
 #if __cplusplus>=201103L

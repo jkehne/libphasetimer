@@ -32,6 +32,7 @@ private:
 public:
   TimerPhase(std::string &name);
 
+  void reset();
   TimerPhase& operator+=(uint64_t amount);
   friend std::ostream& operator<<(std::ostream& os, const TimerPhase &phase);
 };
