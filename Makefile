@@ -17,12 +17,13 @@
 
 LIBNAME := libphasetimer
 OBJS := PhaseTimer TimerPhase CBinding
-CFLAGS := -O2 -std=c++0x -fPIC
+CFLAGS := -O2 -std=c++0x -fPIC -flto -fuse-linker-plugin
 LDFLAGS := -lrt
 CC := g++
 RM := rm -f
 INSTALL := install -D
 LN := ln -s
+AR := gcc-ar
 
 PREFIX ?= $(DESTDIR)/usr
 
@@ -36,7 +37,7 @@ $(LIBNAME).so: $(addsuffix .o,$(OBJS))
 static: $(LIBNAME).a
 
 $(LIBNAME).a: $(addsuffix .o,$(OBJS))
-	ar rcs $@ $^
+	$(AR) rcs $@ $^
 
 %.o: %.cpp
 	$(CC) -c $(CFLAGS) -o $@ $<
