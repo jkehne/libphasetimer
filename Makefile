@@ -17,7 +17,7 @@
 
 LIBNAME := libphasetimer
 OBJS := PhaseTimer TimerPhase CBinding
-CFLAGS := -O2 -std=c++0x -fPIC -flto -fuse-linker-plugin
+CFLAGS := -O2 -std=c++0x -fPIC -flto -fuse-linker-plugin -ffat-lto-objects
 LDFLAGS := -lrt
 CC := g++
 RM := rm -f
